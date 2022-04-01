@@ -145,7 +145,9 @@ endif ()
 # patch added to ensure libs have a full-path ID set on Mac
 if(APPLE)
   set(CMAKE_MACOSX_RPATH FALSE)
-  set(CMAKE_INSTALL_NAME_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+  if(NOT DEFINED CMAKE_INSTALL_NAME_DIR)
+    set(CMAKE_INSTALL_NAME_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+  endif()
 endif()
 
 ################################################################################
